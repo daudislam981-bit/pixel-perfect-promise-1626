@@ -1,23 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Landing } from "@/components/study/marketing";
 
 // The home route ships no og:image, so serve-time hosting can inject the
 // project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Student Life Assistant — Your Study. Your Goals. Your Future." },
+      {
+        name: "description",
+        content:
+          "Organize your studies, plan your week, and make progress on what matters with Student Life Assistant.",
+      },
+      { property: "og:title", content: "Student Life Assistant — Your next chapter starts here" },
+      {
+        property: "og:description",
+        content: "A thoughtful student workspace for tasks, notes, study sessions, and goals.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Landing,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}

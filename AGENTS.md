@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application architecture
+- Keep TanStack file routes and a shared workspace shell around the root Outlet; the template router is required and each page needs independent metadata.
+- Isolate typed demo state in a browser-safe context and pure domain helpers; persist only non-sensitive prototype records locally so a future REST adapter can replace the data source.
+- Keep all visual tokens and reusable styles in src/styles.css, with shared shadcn controls; this keeps the marketing and workspace pages consistent.
